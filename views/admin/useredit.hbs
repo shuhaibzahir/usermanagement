@@ -1,0 +1,39 @@
+<div class="forms-container">
+    <div class="signin-signup">
+        <form style="width: 80%;" id="user-updating-data">
+            <h1 class="btn btn-dark p-4" style="width: 100%; font-size:30px">Edit User Profile</h1>
+            <input type="hidden" id="ckeck-User-Id" value="{{_id}}">
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Username</label>
+                <input type="text" class="form-control" id="sign-up-username" name="username" value="{{username}}">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Email</label>
+                <input type="email" class="form-control" id="sign-up-email" name="email" value="{{email}}" disabled>
+            </div>
+            <p id="user-email-alert" style="color: red; " class="mb-4"></p>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Phone</label>
+                <input type="text" class="form-control" id="sign-up-phone" name="phone" value="{{phone}}">
+            </div>
+            <p id="user-phone-alert" style="color: red; " class="mb-4"></p>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Image Link</label>
+                <input type="text" class="form-control" onkeyup="changingPhoto()" id="sign-up-image" name="image"
+                    value="{{image}}">
+            </div>
+            <p id="user-image-alert" style="color: red; " class="mb-4"></p>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <p id="user-signup-alert" style="color: red; " class="mb-4"></p>
+        </form>
+
+    </div>
+</div>
+
+<div class="panels-container" style="width: 80%;">
+    <div class="panel left-panel">
+        <img src="{{image}}" class="image" id="userPhoto" alt="" />
+    </div>
+
+</div>

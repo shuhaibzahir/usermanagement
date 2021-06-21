@@ -1,0 +1,135 @@
+{{!-- navbar --}}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark px-5">
+    <div class="container-fluid">
+        <a class="navbar-brand " href="#">spaceX<i class="fas fa-rocket"></i>Admin</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse " id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                {{#if position}}
+                <li class="nav-item add-admin">
+                    <a class="nav-link" href="/admin/add-admin"><i class="fas fa-user-plus"></i> Admin</a>
+                </li>
+                {{/if}}
+                <li class="nav-item admin-image">
+                    <img src={{image}} class="nav-img" alt="">
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        {{user}}
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="/admin/profile">Profile</a></li>
+                        <li><a class="dropdown-item" href="/admin/change-pass">Change Password</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="/admin/logout">Logout</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+            <form class="d-flex" action="/admin/search" method="POST">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
+                    name="searchValue">
+                <button class="btn btn-success" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+</nav>
+{{!-- navbar end --}}
+<div class="container d-flex justify-content-end ">
+    <button type="button" class="btn btn-primary popup-btn" data-bs-toggle="modal" data-bs-target="#exampleModal"
+        data-bs-whatever="@mdo">Add Users</button>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add User</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="admin-add-user">
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Username</label>
+                            <input type="text" class="form-control" id="sign-up-username" name="username">
+                        </div>
+                        <p id="user-username-alert" style="color: red; "></p>
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Email</label>
+                            <input type="text" class="form-control" id="sign-up-email" name="email">
+                        </div>
+                         <p id="user-email-alert" style="color: red; "  ></p>
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Phone number</label>
+                            <input type="text" class="form-control" id="sign-up-phone" name="phone">
+                        </div>
+                          <p id="user-phone-alert" style="color: red; " ></p>
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Link your photo</label>
+                            <input type="text" class="form-control" id="sign-up-image" name="image">
+                        </div>
+                         <p id="user-image-alert" style="color: red; "  ></p>
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Password</label>
+                            <input type="text" class="form-control" id="sign-up-pass1" name="password">
+                        </div>
+                         <p id="user-password-alert" style="color: red; " ></p>
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Confirm Password</label>
+                            <input type="text" class="form-control" id="sign-up-pass2" name="cpassword">
+                        </div>
+                        <p id="user-signup-alert" style="color: red; " class="mb-4"></p>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Add</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+{{!-- tables start --}}
+<div class="row px-5 mt-5">
+    <table class="table table-borderless">
+        <thead>
+            <tr class="admin-table-head">
+
+                <th scope="col">Username</th>
+                <th scope="col">Email</th>
+                <th scope="col">Status</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+                <th scope="col">Send</th>
+            </tr>
+        </thead>
+        <tbody class="admin-table">
+            {{#each data}}
+            <tr class="admin-tr" id="{{_id}}">
+
+                <td><a href="/admin/user/profile/{{_id}}" class=" btn ">{{username}}</a>
+                </td>
+                <td><a href="mailto:{{email}}" class="btn">{{email}}</a></td>
+                {{#if status}}
+                <td><a href="#" onclick="changeStatus(event,'{{_id}}')" class="btn btn-success {{_id}}">Active</a></td>
+                {{else}}
+                <td><a href="#" onclick="changeStatus(event,'{{_id}}')" class="btn btn-danger {{_id}}">Decative</a></td>
+                {{/if}}
+                <td><a href="/admin/user-edit/{{_id}}" class="btn btn-primary"><i class="fas fa-user-edit"></i></a>
+                </td>
+                <td><a href="#" class="btn btn-danger"
+                        onclick=' deleteUser(event,"{{_id}}")'><i
+                            class="fas fa-trash"></i></a>
+                </td>
+                <td><a href=" https://wa.me/{{_id}}" class="btn btn-success">Whatsapp</a></td>
+            </tr>
+            {{/each }}
+        </tbody>
+    </table>
+    <p style="text-align: center; width:100%; font-size:50px">{{err}}</p>
+</div>

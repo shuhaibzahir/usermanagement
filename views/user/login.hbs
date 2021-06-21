@@ -1,0 +1,125 @@
+<div class="containerLogin">
+    <div class="forms-container">
+        <div class="signin-signup">
+            <form id="signin-form" action="" class="sign-in-form form">
+                <h2 class="title">Sign in</h2>
+                <div class="input-field">
+                    <i class="fas fa-user"></i>
+                    <input type="email" placeholder="Email" name="email" />
+                </div>
+                <div class="input-field">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" placeholder="Password" name="password" />
+                </div>
+                <button type="submit" class="btn-login solid">sign In</button>
+
+                <p class="social-text" id="user-signin-alert" style="color: red;"></p>
+                <a href="" style="text-decoration: none; color:#353C47;">forgot password ?</a>
+                <p class="social-text">Sign in with</p>
+                <div class="social-media">
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-google"></i>
+                    </a>
+
+                </div>
+            </form>
+
+            {{!-- this is signup --}}
+            <form id="user-register" action="" class="sign-up-form form">
+                <h2 class="title">Sign up</h2>
+                <div class="input-field">
+                    <i class="fas fa-user"></i>
+                    <input id="sign-up-username" type="text" placeholder="Username" name="username" />
+                </div>
+                <p id="user-username-alert" style="color: red; "></p>
+                <div class="input-field">
+                    <i class="fas fa-envelope"></i>
+                    <input id="sign-up-email" type="email" placeholder="Email" name="email" />
+                </div>
+                <p id="user-email-alert" style="color: red; "></p>
+                <div class="input-field">
+                    <i class="fas fa-phone"></i>
+                    <input id="sign-up-phone" type="text" placeholder="Phone" name="phone" />
+                </div>
+                <p id="user-phone-alert" style="color: red; "></p>
+                <div class="input-field">
+                    <i class="fas fa-link"></i>
+                    <input id="sign-up-image" type="text" style="" placeholder="Link Your Photo" name="image" />
+                </div>
+                <p id="user-image-alert" style="color: red; "></p>
+                <div class="input-field">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" placeholder="Password" id="sign-up-pass1" name="password" />
+                </div>
+                <p id="user-password-alert" style="color: red; "></p>
+                <div class="input-field">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" placeholder="Confirm Password" id="sign-up-pass2" name="cpassword" />
+                </div>
+                <input type="submit" class="btn-login" value="Sign up" />
+                <p class="social-text" id="user-signup-alert" style="color: red;"> </p>
+                <p class="social-text">Or Sign up with social platforms</p>
+                <div class="social-media">
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-google"></i>
+                    </a>
+            </form>
+
+
+
+        </div>
+
+    </div>
+</div>
+
+<div class="panels-container">
+    <div class="panel left-panel">
+        <div class="content">
+            <h3>New here ?</h3>
+            <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
+                ex ratione. Aliquid!
+            </p>
+            <button class="btn-login transparent" id="sign-up-btn">
+                Sign up
+            </button>
+        </div>
+        <img src="/images/login.svg" class="image" alt="" />
+    </div>
+    <div class="panel right-panel">
+        <div class="content">
+            <h3>One of us ?</h3>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
+                laboriosam ad deleniti.
+            </p>
+            <button class="btn-login transparent" id="sign-in-btn">
+                Sign in
+            </button>
+        </div>
+        <img src="/images/signup.svg" class="image" alt="" />
+    </div>
+</div>
+</div>
+<script>
+    const sign_in_btn = document.querySelector("#sign-in-btn");
+    const sign_up_btn = document.querySelector("#sign-up-btn");
+    const container = document.querySelector(".containerLogin");
+
+    sign_up_btn.addEventListener("click", () => {
+        container.classList.add("sign-up-mode");
+    });
+
+    sign_in_btn.addEventListener("click", () => {
+        container.classList.remove("sign-up-mode");
+    });
+
+</script>

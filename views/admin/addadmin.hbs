@@ -1,0 +1,47 @@
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div style="width: 50%;">
+        <h3>Add <i class="fas fa-user-cog"></i>Admin</h3>
+        <form id="adminRegister">
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Email address</label>
+                <input id="sign-up-email" type="email" class="form-control" name="email">
+            </div>
+            <p id="user-email-alert" style="color: red; "></p>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Username</label>
+                <input id="sign-up-username" type="text" class="form-control" name="username">
+            </div>
+            <p id="user-username-alert" style="color: red; "></p>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Phone Number</label>
+                <input id="sign-up-phone" type="text" class="form-control" name="phone">
+            </div>
+            <p id="user-phone-alert" style="color: red; "></p>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Admin Photo</label>
+                <input id="sign-up-image" type="text" class="form-control" name="image">
+            </div>
+            <p id="user-image-alert" style="color: red; "></p>
+            <div class="mb-3">
+                <label class="form-label">Select the position of admin</label>
+                <select class="form-select" aria-label="Default select example" name="adminStatus">
+
+                    <option value="super">super</option>
+                    <option value="guest">guest</option>
+
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Password</label>
+                <input id="sign-up-pass1" type="text" class="form-control" name="password">
+            </div>
+            <p id="user-password-alert" style="color: red; "></p>
+            <div class="mb-3">
+                <label class="form-label">Confirm Password</label>
+                <input id="sign-up-pass2" type="text" class="form-control">
+            </div>
+            <p class="social-text mb-3" id="user-signup-alert" style="color: red;"> </p>
+            <button type="submit" class="btn btn-success">Submit</button>
+        </form>
+    </div>
+</div>
